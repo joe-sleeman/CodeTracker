@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,9 +18,10 @@ namespace CodeTrack
 
         public Manager()
         {
-            xDoc = XDocument.Load(FILE_NAME);
+            CreateXMLFile();
+            //xDoc = XDocument.Load(FILE_NAME);
             Links = new List<Link>();
-            loadData();
+            //loadData();
         }
 
         // Show all links in a rich text box.
@@ -37,6 +39,7 @@ namespace CodeTrack
         {
             IEnumerable<String> links;
 
+            // Do we need to search for all kinds of links?
             if (linkType.Equals(""))
             {
                 links = from l in Links
@@ -45,6 +48,7 @@ namespace CodeTrack
 
                 display(links, rtb);
             }
+            // Otherwise, we have defined a user topic.
             else
             {
                 links = from l in Links
@@ -74,6 +78,27 @@ namespace CodeTrack
             // Feedback to user.
             MessageBox.Show("New entry added for: " + topic + " at " + address + ".");
             loadData();         // Reload.
+        }
+
+        // Will create a fresh XML file, if there is no links.XML already.
+        //Console.WriteLine(File.Exists(curFile) ? "File exists." : "File does not exist.");
+        public void CreateXMLFile()
+        {
+            //if (File.Exists(FILE_NAME))
+            //{
+            //    // Already exists, do nothing -- Maybe prompt user?
+            //}
+            //else
+            //{
+                // Create the XML file.
+                
+                xDoc = new XDocument();
+                
+                XElement rootElement = new XElement("Links", xDoc.Root);
+                xDoc.Root.Add(rootElement);
+                xDoc.Save(FILE_NAME);
+                
+            //}
         }
 
 

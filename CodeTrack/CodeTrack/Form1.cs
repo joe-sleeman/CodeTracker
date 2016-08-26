@@ -46,5 +46,10 @@ namespace CodeTrack
             man.SearchLinks(txtSearchTopic.Text, txtSearchLinkType.Text, rtbDisplay);
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            man.CreateXMLFile();
+        }
+
     }
 }

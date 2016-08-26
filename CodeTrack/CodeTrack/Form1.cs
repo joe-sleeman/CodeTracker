@@ -26,14 +26,25 @@ namespace CodeTrack
             this.Location = new Point(0, 0);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnAddEntry_Click(object sender, EventArgs e)
         {
-            man.AddNewLink("Test", "Test.com", "TEST", "TESTTESTTEST");
+            String topic = txtTopic.Text;
+            String address = txtAddress.Text;
+            String linkType = txtLinkType.Text;
+            String description = txtDescription.Text;
+
+            man.AddNewLink(topic, address, linkType, description);
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnShowAll_Click(object sender, EventArgs e)
         {
             man.ShowAllLinks(rtbDisplay);
         }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            man.SearchLinks(txtSearchTopic.Text, txtSearchLinkType.Text, rtbDisplay);
+        }
+
     }
 }

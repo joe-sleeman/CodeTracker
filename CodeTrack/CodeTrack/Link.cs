@@ -21,7 +21,7 @@ namespace CodeTrack
         {
             Topic = topic;
             Address = address;
-            LinkType = LinkType;
+            LinkType = linkType;
             Description = description;
         }
 

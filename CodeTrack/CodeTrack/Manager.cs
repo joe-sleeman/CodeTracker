@@ -25,13 +25,34 @@ namespace CodeTrack
         // Show all links in a rich text box.
         public void ShowAllLinks(RichTextBox rtb)
         {
-            rtb.Clear();
             IEnumerable<String> allLinks;
             allLinks = from l in Links
                        select l.ToString();
 
-            foreach (String l in allLinks)
-                rtb.Text += l;
+            display(allLinks, rtb);
+        }
+
+        // Search for a link.
+        public void SearchLinks(String topic, String linkType, RichTextBox rtb)
+        {
+            IEnumerable<String> links;
+
+            if (linkType.Equals(""))
+            {
+                links = from l in Links
+                        where l.Topic.Equals(topic)
+                        select l.ToString();
+
+                display(links, rtb);
+            }
+            else
+            {
+                links = from l in Links
+                        where l.Topic.Equals(topic) && l.LinkType.Equals(linkType)
+                        select l.ToString();
+
+                display(links, rtb);
+            }
         }
 
         public void AddNewLink(String topic, String address, String linkType,
@@ -52,7 +73,12 @@ namespace CodeTrack
             xDoc.Save(FILE_NAME);
             // Feedback to user.
             MessageBox.Show("New entry added for: " + topic + " at " + address + ".");
+            loadData();         // Reload.
         }
+
+
+        // Private
+
 
         // Load all of our XML data into a List<Link>.
         private void loadData()
@@ -66,6 +92,14 @@ namespace CodeTrack
                 String description = link.Element("Description").Value.Trim();
                 Links.Add(new Link(topic, address, linkType, description));
             }
+        }
+
+        // Display to a Rich Text Box.
+        private void display(IEnumerable<String> collection, RichTextBox rtb)
+        {
+            rtb.Clear();
+            foreach (string s in collection)
+                rtb.Text += s.ToString();
         }
 
     }

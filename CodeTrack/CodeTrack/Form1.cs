@@ -32,8 +32,9 @@ namespace CodeTrack
             String address = txtAddress.Text;
             String linkType = txtLinkType.Text;
             String description = txtDescription.Text;
+            String language = txtLanguage.Text;
 
-            man.AddNewLink(topic, address, linkType, description);
+            man.AddNewLink(topic, address, linkType, description, language);
         }
 
         private void btnShowAll_Click(object sender, EventArgs e)
@@ -49,6 +50,11 @@ namespace CodeTrack
         private void button1_Click(object sender, EventArgs e)
         {
             man.CreateXMLFile();
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
 
     }

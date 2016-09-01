@@ -9,19 +9,20 @@ using System.Xml.Linq;
 
 namespace CodeTrack
 {
+    // Handles all of the work involved and interacts with classes and the UI
+    // so that our classes aren't coupled with the user interface.
     public class Manager
     {
         public List<Link> Links;
         XDocument xDoc;
         String FILE_NAME = Constants.FILE_NAME;
 
-
         public Manager()
         {
             CreateXMLFile();
-            //xDoc = XDocument.Load(FILE_NAME);
+            xDoc = XDocument.Load(FILE_NAME);
             Links = new List<Link>();
-            //loadData();
+            loadData();
         }
 
         // Show all links in a rich text box.
@@ -60,7 +61,7 @@ namespace CodeTrack
         }
 
         public void AddNewLink(String topic, String address, String linkType,
-            String description)
+            String description, String language)
         {
             // Create new XElement called newLink which will be a link entry in 
             // our XML file.
@@ -68,7 +69,8 @@ namespace CodeTrack
                                                     new XElement("Topic", topic),
                                                     new XElement("Address", address),
                                                     new XElement("Link_Type", linkType),
-                                                    new XElement("Description", description)
+                                                    new XElement("Description", description),
+                                                    new XElement("Language", language)
                                             );
 
             // Add new link to our XDocument inside root element "Links".
@@ -81,29 +83,35 @@ namespace CodeTrack
         }
 
         // Will create a fresh XML file, if there is no links.XML already.
-        //Console.WriteLine(File.Exists(curFile) ? "File exists." : "File does not exist.");
         public void CreateXMLFile()
         {
-            //if (File.Exists(FILE_NAME))
-            //{
-            //    // Already exists, do nothing -- Maybe prompt user?
-            //}
-            //else
-            //{
+            if (File.Exists(FILE_NAME))
+            {
+                // Already exists, do nothing -- Maybe prompt user?
+            }
+            else
+            {
+                // We can use our method ResetXMLFile.
+                ResetXMLFile();
+            }
+        }
+
+        // Used to Reset (or create) an XML file that we will use to store all of our
+        // data. Simply creates an XML file with root element "Links".
+        public void ResetXMLFile()
+        {
+            if (File.Exists(FILE_NAME))
+            {
                 // Create the XML file.
-                
-                xDoc = new XDocument();
-                
-                XElement rootElement = new XElement("Links", xDoc.Root);
-                xDoc.Root.Add(rootElement);
+                xDoc = new XDocument(
+                    new XElement("Links"));
+                // Save.
                 xDoc.Save(FILE_NAME);
-                
-            //}
+            }
         }
 
 
         // Private
-
 
         // Load all of our XML data into a List<Link>.
         private void loadData()
@@ -115,7 +123,8 @@ namespace CodeTrack
                 String address = link.Element("Address").Value.Trim();
                 String linkType = link.Element("Link_Type").Value.Trim();
                 String description = link.Element("Description").Value.Trim();
-                Links.Add(new Link(topic, address, linkType, description));
+                String language = link.Element("Language").Value.Trim();
+                Links.Add(new Link(topic, address, linkType, description, language));
             }
         }
 

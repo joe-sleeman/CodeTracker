@@ -12,24 +12,27 @@ namespace CodeTrack
         public String Address { get; set; }
         public String LinkType { get; set; }    // Change to Enum, maybe.
         public String Description { get; set; }
+        public String Language { get; set; }
 
         public Link()
         {
         }
 
-        public Link(String topic, String address, String linkType, String description)
+        public Link(String topic, String address, String linkType, String description, String language)
         {
             Topic = topic;
             Address = address;
             LinkType = linkType;
             Description = description;
+            Language = language;
         }
 
         public override String ToString()
         {
             return "Topic: " + Topic + "\t Address: " + Address +
                 "\t Link Type: " + LinkType + Environment.NewLine +
-                "Description: " + Description + Environment.NewLine
+                "Description: " + Description + Environment.NewLine +
+                "Language: " + Language + Environment.NewLine
                 + Environment.NewLine; 
         }
     }

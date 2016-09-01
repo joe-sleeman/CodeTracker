@@ -42,6 +42,7 @@
             this.txtTopic = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBoxSearch = new System.Windows.Forms.GroupBox();
             this.btnShowAll = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
@@ -49,18 +50,26 @@
             this.txtSearchLinkType = new System.Windows.Forms.TextBox();
             this.txtSearchTopic = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtLanguage = new System.Windows.Forms.TextBox();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.xMLFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.resetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBoxNewEntry.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBoxSearch.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // rtbDisplay
             // 
-            this.rtbDisplay.Location = new System.Drawing.Point(6, 248);
+            this.rtbDisplay.Location = new System.Drawing.Point(6, 287);
             this.rtbDisplay.Name = "rtbDisplay";
-            this.rtbDisplay.Size = new System.Drawing.Size(743, 549);
+            this.rtbDisplay.Size = new System.Drawing.Size(743, 534);
             this.rtbDisplay.TabIndex = 2;
             this.rtbDisplay.Text = "";
             // 
@@ -69,12 +78,12 @@
             this.webBrowser1.Location = new System.Drawing.Point(6, 19);
             this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(744, 778);
+            this.webBrowser1.Size = new System.Drawing.Size(744, 802);
             this.webBrowser1.TabIndex = 3;
             // 
             // btnAddEntry
             // 
-            this.btnAddEntry.Location = new System.Drawing.Point(261, 177);
+            this.btnAddEntry.Location = new System.Drawing.Point(261, 233);
             this.btnAddEntry.Name = "btnAddEntry";
             this.btnAddEntry.Size = new System.Drawing.Size(75, 23);
             this.btnAddEntry.TabIndex = 4;
@@ -84,6 +93,8 @@
             // 
             // groupBoxNewEntry
             // 
+            this.groupBoxNewEntry.Controls.Add(this.label5);
+            this.groupBoxNewEntry.Controls.Add(this.txtLanguage);
             this.groupBoxNewEntry.Controls.Add(this.label4);
             this.groupBoxNewEntry.Controls.Add(this.label3);
             this.groupBoxNewEntry.Controls.Add(this.label2);
@@ -95,7 +106,7 @@
             this.groupBoxNewEntry.Controls.Add(this.btnAddEntry);
             this.groupBoxNewEntry.Location = new System.Drawing.Point(6, 19);
             this.groupBoxNewEntry.Name = "groupBoxNewEntry";
-            this.groupBoxNewEntry.Size = new System.Drawing.Size(361, 214);
+            this.groupBoxNewEntry.Size = new System.Drawing.Size(361, 262);
             this.groupBoxNewEntry.TabIndex = 5;
             this.groupBoxNewEntry.TabStop = false;
             this.groupBoxNewEntry.Text = "Add New Entry";
@@ -167,9 +178,9 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.webBrowser1);
-            this.groupBox1.Location = new System.Drawing.Point(773, 12);
+            this.groupBox1.Location = new System.Drawing.Point(773, 23);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(756, 803);
+            this.groupBox1.Size = new System.Drawing.Size(756, 829);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             // 
@@ -179,11 +190,21 @@
             this.groupBox2.Controls.Add(this.groupBoxSearch);
             this.groupBox2.Controls.Add(this.groupBoxNewEntry);
             this.groupBox2.Controls.Add(this.rtbDisplay);
-            this.groupBox2.Location = new System.Drawing.Point(12, 12);
+            this.groupBox2.Location = new System.Drawing.Point(12, 23);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(755, 803);
+            this.groupBox2.Size = new System.Drawing.Size(755, 829);
             this.groupBox2.TabIndex = 7;
             this.groupBox2.TabStop = false;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(548, 196);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 14;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // groupBoxSearch
             // 
@@ -252,23 +273,78 @@
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
-            // button1
+            // label5
             // 
-            this.button1.Location = new System.Drawing.Point(548, 196);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 14;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(7, 195);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(58, 13);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "Language:";
+            // 
+            // txtLanguage
+            // 
+            this.txtLanguage.Location = new System.Drawing.Point(70, 192);
+            this.txtLanguage.Name = "txtLanguage";
+            this.txtLanguage.Size = new System.Drawing.Size(266, 20);
+            this.txtLanguage.TabIndex = 13;
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Dock = System.Windows.Forms.DockStyle.None;
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(-4, 1);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(137, 24);
+            this.menuStrip1.TabIndex = 8;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.xMLFileToolStripMenuItem,
+            this.exitToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Text = "File";
+            // 
+            // xMLFileToolStripMenuItem
+            // 
+            this.xMLFileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.resetToolStripMenuItem,
+            this.saveToolStripMenuItem});
+            this.xMLFileToolStripMenuItem.Name = "xMLFileToolStripMenuItem";
+            this.xMLFileToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.xMLFileToolStripMenuItem.Text = "XML File";
+            // 
+            // resetToolStripMenuItem
+            // 
+            this.resetToolStripMenuItem.Name = "resetToolStripMenuItem";
+            this.resetToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.resetToolStripMenuItem.Text = "Reset";
+            // 
+            // saveToolStripMenuItem
+            // 
+            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveToolStripMenuItem.Text = "Save";
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1541, 826);
+            this.ClientSize = new System.Drawing.Size(1541, 861);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.menuStrip1);
             this.Name = "Form1";
             this.Text = "Code Track";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -278,7 +354,10 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBoxSearch.ResumeLayout(false);
             this.groupBoxSearch.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -306,6 +385,14 @@
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button btnShowAll;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtLanguage;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem xMLFileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem resetToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
     }
 }
 

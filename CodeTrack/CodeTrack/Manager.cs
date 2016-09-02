@@ -36,28 +36,44 @@ namespace CodeTrack
         }
 
         // Search for a link.
-        public void SearchLinks(String topic, String linkType, RichTextBox rtb)
+        public void SearchLinks(String topic, String linkType, String language, RichTextBox rtb)
         {
             IEnumerable<String> links;
 
             // Do we need to search for all kinds of links?
-            if (linkType.Equals(""))
+            if (linkType.Equals("Any") && language.Equals("Any"))
             {
                 links = from l in Links
-                        where l.Topic.Equals(topic)
+                        where l.Topic.Contains(topic)
                         select l.ToString();
 
-                display(links, rtb);
             }
             // Otherwise, we have defined a user topic.
-            else
+            // So lets check if they aren't fussy on language.
+            else if (language.Equals("Any"))
             {
                 links = from l in Links
-                        where l.Topic.Equals(topic) && l.LinkType.Equals(linkType)
+                        where l.Topic.Contains(topic) && l.LinkType.Equals(linkType)
                         select l.ToString();
 
-                display(links, rtb);
             }
+            // Else, they are fussy on language, but maybe not type.
+            else if (linkType.Equals("Any"))
+            {
+                links = from l in Links
+                        where l.Topic.Contains(topic) && l.Language.Equals(language)
+                        select l.ToString();
+            }
+            else
+            // Fussy on both Language & LinkType
+            {
+                links = from l in Links
+                        where l.Topic.Contains(topic) && l.Language.Equals(language)
+                        && l.LinkType.Equals(linkType)
+                        select l.ToString();
+            }
+            display(links, rtb);
+
         }
 
         public void AddNewLink(String topic, String address, String linkType,
@@ -82,6 +98,19 @@ namespace CodeTrack
             loadData();         // Reload.
         }
 
+        public void GenerateSeeds()
+        {
+            AddNewLink("Recursion - Sierpinski Triangle", "https://github.com/joe-sleeman/Fractals/blob/master/Fractals/Fractals/Triangle.cs",
+                "Git - Public", "Using recursion to generate fractals", "C#");
+            AddNewLink("Random in .NET", "http://www.dotnetperls.com/random", "Dot Net Perls", "Good tutorial on using Random in .NET", "C#");
+            AddNewLink("Yes / No Message Box", "http://stackoverflow.com/questions/3036829/how-to-create-a-message-box-with-yes-no-choices-and-a-dialogresult",
+                "Stack Overflow", "Answer explains how to create a Yes/No MessageBox in C#", "C#");
+            AddNewLink("Non-Editable ComboBox", "http://stackoverflow.com/questions/85702/how-can-i-make-a-combobox-non-editable-in-net", "Stack Overflow",
+                "Answer explains how to create a non-editable combo box in C#", "C#");
+            AddNewLink("Unit Testing in C#", "https://github.com/joe-sleeman/Course-Work/blob/master/GreyScott/UnitTestGreyScott/UnitTest1.cs", "Git - Public",
+                "Repo of unit tests that I did for an assignment 'Grey Scott Simulation'", "C#");
+        }
+
         // Will create a fresh XML file, if there is no links.XML already.
         public void CreateXMLFile()
         {
@@ -100,14 +129,12 @@ namespace CodeTrack
         // data. Simply creates an XML file with root element "Links".
         public void ResetXMLFile()
         {
-            if (File.Exists(FILE_NAME))
-            {
-                // Create the XML file.
-                xDoc = new XDocument(
-                    new XElement("Links"));
-                // Save.
-                xDoc.Save(FILE_NAME);
-            }
+            // Create the XML file.
+            xDoc = new XDocument(
+                new XElement("Links"));
+            // Save.
+            xDoc.Save(FILE_NAME);
+            loadData();
         }
 
 

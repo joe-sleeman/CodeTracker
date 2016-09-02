@@ -29,8 +29,9 @@ namespace CodeTrack
 
         public override String ToString()
         {
-            return "Topic: " + Topic + "\t Address: " + Address +
-                "\t Link Type: " + LinkType + Environment.NewLine +
+            return "Topic: " + Topic + Environment.NewLine + 
+                "Address: " + Address + Environment.NewLine +
+                "Link Type: " + LinkType + Environment.NewLine +
                 "Description: " + Description + Environment.NewLine +
                 "Language: " + Language + Environment.NewLine
                 + Environment.NewLine; 

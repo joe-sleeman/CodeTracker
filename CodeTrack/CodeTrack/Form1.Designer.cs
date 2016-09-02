@@ -32,32 +32,34 @@
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.btnAddEntry = new System.Windows.Forms.Button();
             this.groupBoxNewEntry = new System.Windows.Forms.GroupBox();
+            this.cbLinkType = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtDescription = new System.Windows.Forms.TextBox();
-            this.txtLinkType = new System.Windows.Forms.TextBox();
             this.txtAddress = new System.Windows.Forms.TextBox();
             this.txtTopic = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.cbLanguageTypes = new System.Windows.Forms.ComboBox();
             this.groupBoxSearch = new System.Windows.Forms.GroupBox();
             this.btnShowAll = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.txtSearchLinkType = new System.Windows.Forms.TextBox();
             this.txtSearchTopic = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtLanguage = new System.Windows.Forms.TextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.xMLFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.resetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cbLinkTypeSearch = new System.Windows.Forms.ComboBox();
+            this.cbLanguageSearch = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.loadDefaultToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBoxNewEntry.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -69,7 +71,7 @@
             // 
             this.rtbDisplay.Location = new System.Drawing.Point(6, 287);
             this.rtbDisplay.Name = "rtbDisplay";
-            this.rtbDisplay.Size = new System.Drawing.Size(743, 534);
+            this.rtbDisplay.Size = new System.Drawing.Size(743, 536);
             this.rtbDisplay.TabIndex = 2;
             this.rtbDisplay.Text = "";
             // 
@@ -93,14 +95,14 @@
             // 
             // groupBoxNewEntry
             // 
-            this.groupBoxNewEntry.Controls.Add(this.label5);
-            this.groupBoxNewEntry.Controls.Add(this.txtLanguage);
+            this.groupBoxNewEntry.Controls.Add(this.cbLanguageTypes);
+            this.groupBoxNewEntry.Controls.Add(this.cbLinkType);
             this.groupBoxNewEntry.Controls.Add(this.label4);
+            this.groupBoxNewEntry.Controls.Add(this.label5);
             this.groupBoxNewEntry.Controls.Add(this.label3);
             this.groupBoxNewEntry.Controls.Add(this.label2);
-            this.groupBoxNewEntry.Controls.Add(this.label1);
             this.groupBoxNewEntry.Controls.Add(this.txtDescription);
-            this.groupBoxNewEntry.Controls.Add(this.txtLinkType);
+            this.groupBoxNewEntry.Controls.Add(this.label1);
             this.groupBoxNewEntry.Controls.Add(this.txtAddress);
             this.groupBoxNewEntry.Controls.Add(this.txtTopic);
             this.groupBoxNewEntry.Controls.Add(this.btnAddEntry);
@@ -111,10 +113,28 @@
             this.groupBoxNewEntry.TabStop = false;
             this.groupBoxNewEntry.Text = "Add New Entry";
             // 
+            // cbLinkType
+            // 
+            this.cbLinkType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbLinkType.FormattingEnabled = true;
+            this.cbLinkType.Location = new System.Drawing.Point(70, 147);
+            this.cbLinkType.Name = "cbLinkType";
+            this.cbLinkType.Size = new System.Drawing.Size(266, 21);
+            this.cbLinkType.TabIndex = 15;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(7, 189);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(58, 13);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "Language:";
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(7, 154);
+            this.label4.Location = new System.Drawing.Point(7, 110);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(63, 13);
             this.label4.TabIndex = 12;
@@ -123,7 +143,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(7, 114);
+            this.label3.Location = new System.Drawing.Point(7, 150);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(57, 13);
             this.label3.TabIndex = 11;
@@ -149,17 +169,10 @@
             // 
             // txtDescription
             // 
-            this.txtDescription.Location = new System.Drawing.Point(70, 151);
+            this.txtDescription.Location = new System.Drawing.Point(70, 107);
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(266, 20);
             this.txtDescription.TabIndex = 8;
-            // 
-            // txtLinkType
-            // 
-            this.txtLinkType.Location = new System.Drawing.Point(70, 111);
-            this.txtLinkType.Name = "txtLinkType";
-            this.txtLinkType.Size = new System.Drawing.Size(266, 20);
-            this.txtLinkType.TabIndex = 7;
             // 
             // txtAddress
             // 
@@ -186,7 +199,6 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Controls.Add(this.groupBoxSearch);
             this.groupBox2.Controls.Add(this.groupBoxNewEntry);
             this.groupBox2.Controls.Add(this.rtbDisplay);
@@ -196,34 +208,35 @@
             this.groupBox2.TabIndex = 7;
             this.groupBox2.TabStop = false;
             // 
-            // button1
+            // cbLanguageTypes
             // 
-            this.button1.Location = new System.Drawing.Point(548, 196);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 14;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.cbLanguageTypes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbLanguageTypes.FormattingEnabled = true;
+            this.cbLanguageTypes.Location = new System.Drawing.Point(70, 186);
+            this.cbLanguageTypes.Name = "cbLanguageTypes";
+            this.cbLanguageTypes.Size = new System.Drawing.Size(266, 21);
+            this.cbLanguageTypes.TabIndex = 15;
             // 
             // groupBoxSearch
             // 
+            this.groupBoxSearch.Controls.Add(this.label7);
+            this.groupBoxSearch.Controls.Add(this.cbLanguageSearch);
+            this.groupBoxSearch.Controls.Add(this.cbLinkTypeSearch);
             this.groupBoxSearch.Controls.Add(this.btnShowAll);
             this.groupBoxSearch.Controls.Add(this.label6);
             this.groupBoxSearch.Controls.Add(this.label8);
-            this.groupBoxSearch.Controls.Add(this.txtSearchLinkType);
             this.groupBoxSearch.Controls.Add(this.txtSearchTopic);
             this.groupBoxSearch.Controls.Add(this.btnSearch);
             this.groupBoxSearch.Location = new System.Drawing.Point(383, 19);
             this.groupBoxSearch.Name = "groupBoxSearch";
-            this.groupBoxSearch.Size = new System.Drawing.Size(366, 127);
+            this.groupBoxSearch.Size = new System.Drawing.Size(366, 178);
             this.groupBoxSearch.TabIndex = 13;
             this.groupBoxSearch.TabStop = false;
             this.groupBoxSearch.Text = "Search";
             // 
             // btnShowAll
             // 
-            this.btnShowAll.Location = new System.Drawing.Point(180, 98);
+            this.btnShowAll.Location = new System.Drawing.Point(180, 140);
             this.btnShowAll.Name = "btnShowAll";
             this.btnShowAll.Size = new System.Drawing.Size(75, 23);
             this.btnShowAll.TabIndex = 12;
@@ -249,13 +262,6 @@
             this.label8.TabIndex = 9;
             this.label8.Text = "Topic:";
             // 
-            // txtSearchLinkType
-            // 
-            this.txtSearchLinkType.Location = new System.Drawing.Point(70, 71);
-            this.txtSearchLinkType.Name = "txtSearchLinkType";
-            this.txtSearchLinkType.Size = new System.Drawing.Size(266, 20);
-            this.txtSearchLinkType.TabIndex = 7;
-            // 
             // txtSearchTopic
             // 
             this.txtSearchTopic.Location = new System.Drawing.Point(70, 29);
@@ -265,29 +271,13 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(261, 97);
+            this.btnSearch.Location = new System.Drawing.Point(261, 140);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 23);
             this.btnSearch.TabIndex = 4;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(7, 195);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(58, 13);
-            this.label5.TabIndex = 14;
-            this.label5.Text = "Language:";
-            // 
-            // txtLanguage
-            // 
-            this.txtLanguage.Location = new System.Drawing.Point(70, 192);
-            this.txtLanguage.Name = "txtLanguage";
-            this.txtLanguage.Size = new System.Drawing.Size(266, 20);
-            this.txtLanguage.TabIndex = 13;
             // 
             // menuStrip1
             // 
@@ -313,7 +303,8 @@
             // 
             this.xMLFileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.resetToolStripMenuItem,
-            this.saveToolStripMenuItem});
+            this.saveToolStripMenuItem,
+            this.loadDefaultToolStripMenuItem});
             this.xMLFileToolStripMenuItem.Name = "xMLFileToolStripMenuItem";
             this.xMLFileToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.xMLFileToolStripMenuItem.Text = "XML File";
@@ -323,19 +314,54 @@
             this.resetToolStripMenuItem.Name = "resetToolStripMenuItem";
             this.resetToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.resetToolStripMenuItem.Text = "Reset";
+            this.resetToolStripMenuItem.Click += new System.EventHandler(this.resetToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(102, 22);
             this.saveToolStripMenuItem.Text = "Save";
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
+            // cbLinkTypeSearch
+            // 
+            this.cbLinkTypeSearch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbLinkTypeSearch.FormattingEnabled = true;
+            this.cbLinkTypeSearch.Location = new System.Drawing.Point(71, 71);
+            this.cbLinkTypeSearch.Name = "cbLinkTypeSearch";
+            this.cbLinkTypeSearch.Size = new System.Drawing.Size(265, 21);
+            this.cbLinkTypeSearch.TabIndex = 13;
+            // 
+            // cbLanguageSearch
+            // 
+            this.cbLanguageSearch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbLanguageSearch.FormattingEnabled = true;
+            this.cbLanguageSearch.Location = new System.Drawing.Point(71, 110);
+            this.cbLanguageSearch.Name = "cbLanguageSearch";
+            this.cbLanguageSearch.Size = new System.Drawing.Size(265, 21);
+            this.cbLanguageSearch.TabIndex = 14;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(7, 114);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(58, 13);
+            this.label7.TabIndex = 15;
+            this.label7.Text = "Language:";
+            // 
+            // loadDefaultToolStripMenuItem
+            // 
+            this.loadDefaultToolStripMenuItem.Name = "loadDefaultToolStripMenuItem";
+            this.loadDefaultToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.loadDefaultToolStripMenuItem.Text = "Load Seeds";
+            this.loadDefaultToolStripMenuItem.Click += new System.EventHandler(this.loadDefaultToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -372,7 +398,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtDescription;
-        private System.Windows.Forms.TextBox txtLinkType;
         private System.Windows.Forms.TextBox txtAddress;
         private System.Windows.Forms.TextBox txtTopic;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -380,19 +405,22 @@
         private System.Windows.Forms.GroupBox groupBoxSearch;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txtSearchLinkType;
         private System.Windows.Forms.TextBox txtSearchTopic;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button btnShowAll;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtLanguage;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem xMLFileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem resetToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.ComboBox cbLinkType;
+        private System.Windows.Forms.ComboBox cbLanguageTypes;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox cbLanguageSearch;
+        private System.Windows.Forms.ComboBox cbLinkTypeSearch;
+        private System.Windows.Forms.ToolStripMenuItem loadDefaultToolStripMenuItem;
     }
 }
 

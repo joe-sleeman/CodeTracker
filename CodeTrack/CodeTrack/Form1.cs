@@ -17,6 +17,7 @@ namespace CodeTrack
         {
             InitializeComponent();
             man = new Manager();
+            populateComboBoxes();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -30,9 +31,9 @@ namespace CodeTrack
         {
             String topic = txtTopic.Text;
             String address = txtAddress.Text;
-            String linkType = txtLinkType.Text;
+            String linkType = cbLinkType.SelectedValue.ToString();
+            String language = cbLanguageTypes.SelectedValue.ToString();
             String description = txtDescription.Text;
-            String language = txtLanguage.Text;
 
             man.AddNewLink(topic, address, linkType, description, language);
         }
@@ -44,7 +45,8 @@ namespace CodeTrack
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            man.SearchLinks(txtSearchTopic.Text, txtSearchLinkType.Text, rtbDisplay);
+            man.SearchLinks(txtSearchTopic.Text, cbLinkTypeSearch.SelectedValue.ToString(),
+                cbLanguageSearch.SelectedValue.ToString(), rtbDisplay);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -55,6 +57,32 @@ namespace CodeTrack
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void populateComboBoxes()
+        {
+            cbLinkType.DataSource = Constants.LINK_TYPES;
+            cbLanguageTypes.DataSource = Constants.LANGUAGE_TYPES;
+            cbLinkTypeSearch.DataSource = Constants.LINK_TYPES_SEARCH;
+            cbLanguageSearch.DataSource = Constants.LANGUAGE_TYPES_SEARCH;
+        }
+
+        private void resetToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Check if user really wants to reset their XML file.
+            DialogResult result = MessageBox.Show("Are you sure you want to reset your XML file?",
+                "Sure?", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                man.ResetXMLFile();
+                MessageBox.Show("Successfully reset XML File", "Success!");
+            }
+
+        }
+
+        private void loadDefaultToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            man.GenerateSeeds();
         }
 
     }

@@ -74,14 +74,16 @@
             this.rtbDisplay.Size = new System.Drawing.Size(743, 536);
             this.rtbDisplay.TabIndex = 2;
             this.rtbDisplay.Text = "";
+            this.rtbDisplay.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.rtbDisplay_LinkClicked);
             // 
             // webBrowser1
             // 
             this.webBrowser1.Location = new System.Drawing.Point(6, 19);
             this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(744, 802);
+            this.webBrowser1.Size = new System.Drawing.Size(1073, 802);
             this.webBrowser1.TabIndex = 3;
+            this.webBrowser1.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webBrowser1_DocumentCompleted);
             // 
             // btnAddEntry
             // 
@@ -193,7 +195,7 @@
             this.groupBox1.Controls.Add(this.webBrowser1);
             this.groupBox1.Location = new System.Drawing.Point(773, 23);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(756, 829);
+            this.groupBox1.Size = new System.Drawing.Size(1090, 829);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             // 
@@ -286,7 +288,7 @@
             this.fileToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(-4, 1);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(137, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(45, 24);
             this.menuStrip1.TabIndex = 8;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -367,7 +369,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1541, 861);
+            this.ClientSize = new System.Drawing.Size(1876, 861);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.menuStrip1);

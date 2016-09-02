@@ -25,6 +25,7 @@ namespace CodeTrack
             // Set form location to top left.
             this.StartPosition = FormStartPosition.Manual;
             this.Location = new Point(0, 0);
+            webBrowser1.ScriptErrorsSuppressed = true;
         }
 
         private void btnAddEntry_Click(object sender, EventArgs e)
@@ -83,6 +84,17 @@ namespace CodeTrack
         private void loadDefaultToolStripMenuItem_Click(object sender, EventArgs e)
         {
             man.GenerateSeeds();
+        }
+
+        private void rtbDisplay_LinkClicked(object sender, LinkClickedEventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            webBrowser1.Navigate(e.LinkText);
+        }
+
+        private void webBrowser1_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
+        {
+            Cursor.Current = Cursors.Default;
         }
 
     }
